@@ -8,10 +8,11 @@ Feature: sample karate test script
     Given path '<number>/math?json=true'
     When method get
     Then status 200
-    And print 'after get', response
+    And match response.found == true
     Examples:
       |number |
       |1|
       |2|
       |3|
       |4|
+      |11|
