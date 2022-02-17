@@ -2,17 +2,16 @@ Feature: sample karate test script
   for help, see: https://github.com/intuit/karate/wiki/IDE-Support
 
   Background:
-    * url 'https://jsonplaceholder.typicode.com'
+    * url 'http://numbersapi.com/'
 
-  Scenario: get response
-    Given path 'todos/1'
+  Scenario Outline: get response
+    Given path '<number>/math?json=true'
     When method get
-    Then match response ==
-                          """
-                             {
-                               "userId": 1,
-                               "id": 1,
-                               "title": "delectus aut autem",
-                               "completed": false
-                             }
-                          """
+    Then status 200
+    And print 'after get', response
+    Examples:
+      |number |
+      |1|
+      |2|
+      |3|
+      |4|
