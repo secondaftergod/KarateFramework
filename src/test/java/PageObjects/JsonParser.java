@@ -11,7 +11,6 @@ public class JsonParser {
         String item = JsonPath.from(json).get("connectedApps[0].applicationRoles[0].roleId");
         String item1 = JsonPath.from(json1).get("roleId");
         return item;
-
     }
 
 
