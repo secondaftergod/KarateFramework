@@ -10,6 +10,7 @@ Feature: Fake Email
     Given url 'https://www.1secmail.com/api/v1/?action=readMessage&login=<login>&domain=<domain>&id='+idmessage
     And method Get
     * def mUrl = response.textBody.split(' ')
+    * print mUrl
     Given driver mUrl[0]
     Then status 200
     * delay(5000)
