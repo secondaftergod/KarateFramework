@@ -6,9 +6,9 @@ Feature: Fake Email
     And method GET
 #    * def json = karate.pretty(response)
     * match karate.range(200, 299) contains responseStatus
-    * def idmessage = response[0].id
-
-    Given url 'https://www.1secmail.com/api/v1/?action=readMessage&login=<login>&domain=<domain>&id='+idmessage
+    * def http = 'https://www.1secmail.com/api/v1/?action=readMessage&login=<login>&domain=<domain>&id=<idmessage>'
+    * replace http.idmessage = response[0].id
+    Given url http
     When method Get
     * string textMessage = response.textBody
     * print textMessage
