@@ -11,7 +11,7 @@ Feature: Fake Email
     And method Get
     * def mUrl = response.textBody.split(' ')
     * print mUrl
-    Given driver mUrl[0]
+    Given driver mUrl[0].replace('--','')
     Then status 200
     * delay(5000)
 
