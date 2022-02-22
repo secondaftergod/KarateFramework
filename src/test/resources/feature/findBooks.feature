@@ -1,10 +1,10 @@
-@ui
+@uiAmazon
 Feature: Searching Book on page
 
 
   Scenario: Search Book
     Given driver 'https://www.amazon.com'
-    * def pjo = Java.type('PageObjects.mainPage')
+    * def pjo = Java.type('PageObjectsAmazon.mainPageAmazon')
     * def searchBook = 'Effective Java\nby Joshua Bloch'
     And input(pjo.searchField,'Java')
     And mouse(pjo.searchButton).click()

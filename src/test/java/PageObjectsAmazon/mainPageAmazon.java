@@ -1,6 +1,6 @@
-package PageObjects;
+package PageObjectsAmazon;
 
-public class mainPage {
+public class mainPageAmazon {
     public final static String searchField="#twotabsearchtextbox";
     public  final static String searchButton="#nav-search-submit-button";
     public final static String filterBook="{span}Books";

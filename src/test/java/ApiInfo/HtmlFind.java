@@ -1,4 +1,4 @@
-package PageObjects;
+package ApiInfo;
 
 import java.util.ArrayList;
 import java.util.List;

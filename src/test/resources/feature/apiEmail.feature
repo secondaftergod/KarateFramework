@@ -12,7 +12,7 @@ Feature: Fake Email
     When method Get
     * string textMessage = response.textBody
     * print textMessage
-    * def href = Java.type('PageObjects.HtmlFind')
+    * def href = Java.type('ApiInfo.HtmlFind')
     * def link = href.findUrls(textMessage)
     * print link
     Given driver link[0]
