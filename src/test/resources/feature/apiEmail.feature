@@ -5,14 +5,18 @@ Feature: Fake Email
     Given url 'https://www.1secmail.com/api/v1/?action=getMessages&login=<login>&domain=<domain>'
     And method GET
 #    * def json = karate.pretty(response)
+    * match karate.range(200, 299) contains responseStatus
     * def idmessage = response[0].id
-    Then status 200
+
     Given url 'https://www.1secmail.com/api/v1/?action=readMessage&login=<login>&domain=<domain>&id='+idmessage
-    And method Get
-    * def mUrl = response.textBody.split(' ')
-    * print mUrl
-    Given driver mUrl[0].replace('--','')
-    Then status 200
+    When method Get
+    * string textMessage = response.textBody
+    * print textMessage
+    * def href = Java.type('PageObjects.HtmlFind')
+    * def link = href.findUrls(textMessage)
+    * print link
+    Given driver link[0]
+    * match karate.range(200, 299) contains responseStatus
     * delay(5000)
 
 
