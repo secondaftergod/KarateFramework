@@ -6,11 +6,14 @@ Feature: Fake Email
     And method GET
 #    * def json = karate.pretty(response)
     * def idmessage = response[0].id
+    Then status 200
     Given url 'https://www.1secmail.com/api/v1/?action=readMessage&login=<login>&domain=<domain>&id='+idmessage
     And method Get
     * def mUrl = response.textBody.split(' ')
     Given driver mUrl[0]
+    Then status 200
     * delay(5000)
+
 
 
     Examples:
